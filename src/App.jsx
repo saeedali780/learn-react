@@ -3,7 +3,9 @@ import { BrowserRouter, Route,Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import PageNotFound from "./pages/PageNotFound";
-
+import Nav from "./compnents/Nav";
+import Profile from "./pages/Profile.jsx"
+import Settings from "./pages/Settings.jsx"
 
 // import { useState, useReducer } from 'react';
 
@@ -23,10 +25,13 @@ const App = () => {
   return (
 
     <BrowserRouter>
-
+    <Nav/>
     <Routes>
       <Route path="/" element={<Home/>} />
-      <Route path="/dashboard" element={<Dashboard/>} />
+      <Route path="/dashboard" element={<Dashboard/>} >
+      <Route path="profile" element={<Profile/>}/>
+      <Route path="settings" element={<Settings/>}/>
+      </Route>
       <Route path="*" element={<PageNotFound/>} />
 
     </Routes>
