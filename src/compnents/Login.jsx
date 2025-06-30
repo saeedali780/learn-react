@@ -1,15 +1,15 @@
 import React, { useState, useContext } from 'react';
-
 import { userContext } from '../context/UserContext.jsx';
 
 const Login = () => {
      const [value,setValue] = useState("");
-     const {user,setUser} =  useContext(userContext);
+     const {user,dispatch} =  useContext(userContext);
 
      const handleSubmit = (e)=>{
         e.preventDefault();
-        setUser(value)
-     }
+      dispatch({type:"login",payload: value});
+      
+      }
   return (
     <div>
         <form onSubmit={handleSubmit}>
