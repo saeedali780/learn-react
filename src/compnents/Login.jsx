@@ -3,7 +3,7 @@ import { userContext } from '../context/UserContext.jsx';
 
 const Login = () => {
      const [value,setValue] = useState("");
-     const {user,dispatch} =  useContext(userContext);
+     const {state,dispatch} =  useContext(userContext);
 
      const handleSubmit = (e)=>{
         e.preventDefault();
