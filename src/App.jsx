@@ -6,6 +6,7 @@ import PageNotFound from "./pages/PageNotFound";
 import Nav from "./compnents/Nav";
 import Profile from "./pages/Profile.jsx"
 import Settings from "./pages/Settings.jsx"
+import Products from "./pages/Products.jsx";
 
 // import { useState, useReducer } from 'react';
 
@@ -28,6 +29,7 @@ const App = () => {
     <Nav/>
     <Routes>
       <Route path="/" element={<Home/>} />
+      <Route path="/products/:id" element={<Products/>}></Route>
       <Route path="/dashboard" element={<Dashboard/>} >
       <Route path="profile" element={<Profile/>}/>
       <Route path="settings" element={<Settings/>}/>
