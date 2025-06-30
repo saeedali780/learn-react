@@ -1,20 +1,19 @@
-import React, { createContext, useState } from "react";
+import React from "react";
 import Checkout from "./compnents/Checkout";
 import Login from "./compnents/Login";
-export  const userContext = createContext();
+import { UserProvider } from "./context/UserContext";
+
 
 const App = () => {
-  const [user,setUser]  = useState("Guest")
+
 
   return (
 
     <div>
-   
-      <userContext.Provider value={{user,setUser}}>
+      <UserProvider>
       <Login/>
       <Checkout  />
-      </userContext.Provider>
-   
+      </UserProvider>
     </div>
   )
 }

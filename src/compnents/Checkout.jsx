@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { userContext } from '../App';
+import { userContext } from '../context/UserContext.jsx';
 
 const Checkout = () => {
   const {user} =  useContext(userContext);
