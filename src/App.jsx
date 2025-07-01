@@ -7,12 +7,11 @@ import UseDisplayMessage from "./hooks/UseDisplayMessage";
 
 
 const App = () => {
-  const [message,displayMessage]= UseDisplayMessage()
-  displayMessage()
+  
   return (
 
     <div>
-   <h1>{message}</h1>
+      <Login/>
     </div>
   )
 }
