@@ -1,16 +1,10 @@
-import React,{useState} from 'react';
-import User from './User';
-
+import React from 'react';
+import Skills from './Skills';
 
 const App = () => {
-  const [user,setUser] = useState({
-    name:'John',
-    age:20,
-    city:'New York'
-  });
   return (
     <div>
-      <User user={user} setUser={setUser}/>
+      <Skills/>
     </div>
   )
 }
