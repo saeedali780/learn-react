@@ -1,10 +1,12 @@
 import React from 'react';
-import Skills from './Skills';
+import Form from './Form.jsx';
+// import Skills from './Skills';
 
 const App = () => {
   return (
     <div>
-      <Skills/>
+      <Form/>
+      {/* <Skills/> */}
     </div>
   )
 }
