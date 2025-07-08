@@ -1,27 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import Count from './Count';
 
 
 const App = () => {
   const [count,setCount] = useState(0);
-
-  useEffect(()=>{
-  callfun();
-    callfun2()
-  },[])
-  function callfun(){
-    console.log("Hello from fun");
-  }
-  function callfun2(){
-    console.log("Hello from fun2");
-  }
+  const [data,setData] = useState(0);
+  const [display,setDisplay] = useState(true)
 
 
   return (
     <div >
-      <h1>Count is: {count}</h1>
+      {display?  <Count count={count} setCount={setCount} data={data}/> :null}
+     
       <button onClick={()=> setCount(count + 1)}>Increament</button>
       <button onClick={()=> setCount(count - 1)}>Descreament</button>
-    
+      <button onClick={()=> setData(data + 1)}>Data</button>
+      <button onClick={()=> setDisplay(!display)}>Toggle</button>
     </div>
   )
 }
