@@ -1,31 +1,18 @@
-import React from 'react';
-
-import styled from 'styled-components';
+import { Alert, Button } from 'react-bootstrap';
+import React, { useState } from 'react';
 
 const App = () => {
-  const Heading = styled.h1`
-  color:red;
-  border:1px solid green;
-  border-radious:10px;
-  margin:10px;
-  padding:10px;
-  width:200px;
-  `
+  const [count,setCount] = useState(0)
   return (
-    <div style={{display:"flex", flexWrap:"wrap"}}>
-    <Heading>Hello Saeed</Heading>
-    <Heading>Hello Saeed</Heading>
-    <Heading>Hello Saeed</Heading>
-    <Heading>Hello Saeed</Heading>
-     <Heading>Hello Saeed</Heading>
-     <Heading>Hello Saeed</Heading> 
-     <Heading>Hello Saeed</Heading>
-     <Heading>Hello Saeed</Heading>
-     <Heading>Hello Saeed</Heading>
-     <Heading>Hello Saeed</Heading>
-     
-   
-    </div>
+    <>
+    <h1>Hello React Bootstrap</h1>
+    <Alert variant='success'>Hello, react-bootstrap installed</Alert>
+    <h1>count: {count}</h1>
+      <Button onClick={()=> setCount(count+1)} variant='success'>Increament</Button>
+      <Button  onClick={()=> setCount(count-1)}  variant='danger'>Deacreament</Button>
+      <Button  onClick={()=> setCount(0)}  variant='warning'>Clear</Button>
+    </>
+
   )
 }
 
