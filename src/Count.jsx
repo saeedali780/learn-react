@@ -15,11 +15,9 @@ const Count = ({count,data}) => {
     useEffect(()=>{
       return ()=>{
          console.log("this will execute when toggle is hidden");
-      }
-        
-      
+      }   
     }, []);
-
+    
     
 
   return (
