@@ -1,21 +1,26 @@
-import React from 'react'
-import { useTransition } from 'react';
+import React from 'react';
+import { useState } from 'react';
 
 const App = () => {
-  const [pending,startTransition]= useTransition();
+  const [users,setUsers] = useState([]);
+  const [user,setUser] = useState('');
+  const handleAddUsers = ()=>{
+    setUsers([...users,user])
+  }
+ const total = users.length;
+ const last = users[users.length-1];
+ const unique =[...new Set(users )].length
   
-    const handleSubmit =  ()=>{
-
-      startTransition(async()=>{
-        await new Promise(res=>setTimeout(res,10000))
-      });
-  };
   return (
     <div>
-      {
-        pending?  <img src="https://wpamelia.com/wp-content/uploads/2018/11/ezgif-2-6d0b072c3d3f.gif" alt="" /> :null
-      }
-      <button disabled={pending} onClick={handleSubmit}>Click Me</button>
+      <h2>Total Users: {total} </h2>
+      <h2>Last User: {last} </h2>
+      <h2>Unique Total User: {unique} </h2>
+      <input type="text" onChange={(e)=>setUser(e.target.value)}/>
+      <button onClick={handleAddUsers}>Add user</button>
+      {users.map((item,index)=>(
+        <h4 key={index}>{item}</h4>
+      ))}
     </div>
   )
 }
