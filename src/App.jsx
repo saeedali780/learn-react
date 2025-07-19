@@ -1,19 +1,9 @@
-import React from 'react';
-import useToggle from './custom hooks/useToggle';
-
-
+import React from 'react'
 
 const App = () => {
-  const [value,toggleValue]= useToggle(true)
-  console.log(value);
-  
   return (
     <div>
-      {value? <h1>Custom Hooks in React</h1>  :null}
-      <button onClick={toggleValue}>Toggle Heading</button>
-      <button onClick={()=>toggleValue(false)}>Hide Heading</button>   
-      <button onClick={()=>toggleValue(true)}>Show Heading</button>   
-
+      <h2 className='bg-red-300 text-3xl font-bold'>Tailwind CSS Setup</h2>
     </div>
   )
 }
