@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route, NavLink } from 'react-router-dom';
 import UserList from './UserList';
 import AddUser from './AddUser';
+import EditUser from './EditUser';
 
 const navStyle = {
   display: 'flex',
@@ -51,6 +52,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<UserList />} />
         <Route path="/add" element={<AddUser />} />
+        <Route path="/edit/:id" element={<EditUser />} />
       </Routes>
     </div>
   );
