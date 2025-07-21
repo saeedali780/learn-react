@@ -1,0 +1,25 @@
+{
+    "users":[
+        {
+            "name":"Hanzala",
+            "age":18,
+            "email":"hanzala@test.com"
+        },
+        {
+            "name":"Saeed",
+            "age":17,
+            "email":"saeed@test.com"
+        },
+        {
+            "name":"Hamza",
+            "age":21,
+            "email":"hamza@test.com"
+        },
+        {
+            "name":"Jerry",
+            "age":19,
+            "email":"jerry@test.com"
+        }
+    ]
+
+}
