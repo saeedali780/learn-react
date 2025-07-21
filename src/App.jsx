@@ -1,33 +1,39 @@
-import React from 'react'
+import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
 
 const App = () => {
-  const [apiData,setApiData] =  useState([])
+
+  const [userData,setUserData] = useState([]);
+  const [loading,setLoading] = useState(false)
+
+
+
 
   useEffect(()=>{
-    getUsersData()
+    setLoading(true)
+    getUserData()
   },[])
-  const getUsersData = async ()=>{
-    const url = 'https://dummyjson.com/users';
-    let response = await fetch(url);
-   response = await response.json();
-  //  console.log(response.users);
+
+  const getUserData = async()=>{
+    const api = "http://localhost:3000/users";
+    let response= await fetch(api);
+   response= await response.json();
+   setUserData(response);
+   setLoading(false);
    
-  setApiData(response.users)
-  // console.log(apiData);
-  
   }
-  useEffect(() => {
-    console.log(apiData);
-  }, [apiData]);
   return (
     <div>
-    {apiData && apiData.map((user) => (
-      <h1 key={user.id}>{user.firstName}</h1>
-    ))}
+      <h1 className='text-xl mt-4 ml-4 font-bold'>Integrate JSON Server API and Loader</h1>
+      {
+        !loading? userData.map((user,key) => (
+         <h1 className='text-xl mt-4 ml-4 font-bold text-green-700' key={key}>{user.name}</h1>
+      ))
+      : <h1 className='text-5xl'>Loading...</h1>
+      }
     </div>
-  )
+  ) 
 }
 
 export default App
