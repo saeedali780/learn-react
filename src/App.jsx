@@ -1,21 +1,33 @@
-import React, { lazy, Suspense, useState } from "react";
-//import User from "./User";
-const User = lazy(() => import("./User.jsx"));
+import React, { Suspense, use } from 'react';
+const fetchData = ()=> fetch('https://dummyjson.com/users').then((response)=> response.json());
+//console.log(fetchData());
+
+const userResource = fetchData()
+
 const App = () => {
-  const [load, setLoad] = useState(false);
   return (
     <div>
-      {load ? (
-        <Suspense fallback={<h3>Loading...</h3>}>
-          <User />
-        </Suspense>
-      ) : null}
-      <h1 className="text-xl">Lazy Loader</h1>
-      <button className="btn" onClick={() => setLoad(true)}>
-        Load User
-      </button>
+      <Suspense fallback={<p>loading...</p>}>
+      <User userResource={userResource} />
+      </Suspense>
     </div>
-  );
-};
+  )
+}
 
 export default App;
+
+
+const User = ({userResource})=>{
+ 
+  const userData = use(userResource);
+  const users = userData.users;
+  console.log(users);
+  
+  return(
+      <div>
+      {users.map((user)=>(
+        <h1 key={user.ids}>{user?.lastName}</h1>
+      ))}
+      </div>
+  )
+}
